@@ -8,3 +8,6 @@ Steps to run the project
 This chatbot assists the users in answering queries related to company sales progress. 
 The chatbot is trained with kaggle dataset contains company information
 "https://www.kaggle.com/datasets/ayoubcherguelaine/company-documents-dataset"
+
+# Project Execution
+To work on this project create API keys in pinecone, groq and openai model
