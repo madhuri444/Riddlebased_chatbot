@@ -17,4 +17,4 @@ pillow_heif
 unstructured_inference
 sentence-transformers
 flask
-
+gunicorn
