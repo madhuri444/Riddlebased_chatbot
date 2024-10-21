@@ -4,3 +4,7 @@ Steps to run the project
 2. conda create -p venv 
 3.  conda activate venv
    
+# Project Scope
+This chatbot assists the users in answering queries related to company sales progress. 
+The chatbot is trained with kaggle dataset contains company information
+"https://www.kaggle.com/datasets/ayoubcherguelaine/company-documents-dataset"
