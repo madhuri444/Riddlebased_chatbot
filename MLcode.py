@@ -29,12 +29,16 @@ openai_api_key = os.getenv("OPENAI_API_KEY")
 groq_api_key = os.getenv("GROQ_API_KEY")
 groq_client = Groq(api_key=os.getenv('GROQ_API_KEY'))
 
-index_name = "chatbot"
+index_name = "chatbott"
 namespace = "company-documents"
 embeddings = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
 vectorstore = PineconeVectorStore(index_name=index_name, embedding= embeddings)
 pc = Pinecone(api_key=pinecone_api_key)
 pinecone_index = pc.Index(index_name)
+
+from Documents import process_documents
+
+#Documents_data = process_documents()
 
 vectorstore_from_documents = PineconeVectorStore.from_documents(
   [],
@@ -67,6 +71,3 @@ def queryEmbedding(query):
     
     return response
     
-
-
-

@@ -14,7 +14,7 @@ namespace = "company-documents"
 pinecone_api_key = os.getenv("PINECONE_API_KEY")
 openai_api_key = os.getenv("OPENAI_API_KEY")
 
-def process_documents(directory_path="data/"):
+def process_documents(directory_path="data"):
     document_data = []
     
     # Traverse through all files in the given directory
@@ -28,16 +28,21 @@ def process_documents(directory_path="data/"):
             # Extract document source and content
             document_source = loaded_data[0].metadata['source']
             document_content = loaded_data[0].page_content
+            
+            
 
             # Create file and folder details
-            file_name = document_source.split("/")[-1]
-            folder_names = document_source.split("/")[2:-1]
+            #file_name = document_source.split("/")[-1]
+            #folder_names = document_source.split("/")[2:-1]
+            file_name = document_source.split("\\")[-1]
+            folder_names = document_source.split("\\")[1:-1]
 
             # Create a Document object
             doc = Document(
                 page_content=f"<Source>\n{document_source}\n</Source>\n\n<Content>\n{document_content}\n</Content>",
                 metadata={
                     "file_name": file_name,
+                    "parent_folder": folder_names[1],
                     "folder_names": folder_names
                 }
             )
@@ -48,7 +53,7 @@ def process_documents(directory_path="data/"):
     return document_data
 
 # Call the function and store the result
-#document_data = process_documents("data/")
+#document_data = process_documents()
 
 
 
